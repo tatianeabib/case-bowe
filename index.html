@@ -324,14 +324,80 @@
     font-weight: 300;
   }
 
+  /* Legenda de dados */
+  .bw-legend {
+    display: flex;
+    gap: 1.5rem;
+    margin: 1.5rem 0 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .bw-legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: rgba(255,255,255,0.45);
+    font-weight: 400;
+  }
+
+  .bw-legend-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  .bw-legend-dot.public { background: #00E5CC; }
+  .bw-legend-dot.hypothesis { background: rgba(255,255,255,0.3); border: 1px solid rgba(255,255,255,0.3); }
+
+  .tag-public {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: #00E5CC;
+    background: rgba(0,229,204,0.1);
+    border: 1px solid rgba(0,229,204,0.25);
+    border-radius: 4px;
+    padding: 1px 6px;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+
+  .tag-hypo {
+    display: inline-block;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.4);
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 4px;
+    padding: 1px 6px;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+
+  .bw-disclaimer {
+    font-size: 11px;
+    color: rgba(255,255,255,0.3);
+    line-height: 1.6;
+    font-weight: 300;
+    margin-top: 1.25rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.06);
+  }
+
+  /* Closing & assinatura */
   .bw-closing {
-    padding: 3rem 0;
+    padding: 3rem 1.5rem;
     text-align: center;
     background: rgba(0,229,204,0.05);
     border-top: 1px solid rgba(0,229,204,0.15);
     margin: 0 -1.5rem;
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
   }
 
   .bw-closing p {
@@ -345,6 +411,26 @@
   .bw-closing p span { color: #00E5CC; }
 
   .bw-closing small {
+    font-size: 13px;
+    color: rgba(255,255,255,0.4);
+    font-weight: 300;
+  }
+
+  .bw-signature {
+    margin-top: 2.5rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    text-align: center;
+  }
+
+  .bw-signature-name {
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.3rem;
+  }
+
+  .bw-signature-contact {
     font-size: 13px;
     color: rgba(255,255,255,0.4);
     font-weight: 300;
@@ -401,6 +487,7 @@
     .bw-hero h1 { font-size: 28px; }
     .bw-trio, .bw-stakeholder, .bw-kpi-grid, .bw-tier-grid { grid-template-columns: 1fr; }
     .bw-posicionamento { flex-direction: column; }
+    .bw-legend { flex-direction: column; gap: 0.5rem; }
   }
 </style>
 </head>
@@ -434,12 +521,12 @@
     <div class="bw-tier-grid">
       <div class="bw-tier t1">
         <span class="bw-tier-badge">Tier 1 · 1:1</span>
-        <div class="bw-tier-title">Nestlé, P&G</div>
+        <div class="bw-tier-title">Nestlé, P&G <span class="tag-public">Público</span></div>
         <div class="bw-tier-body">Relacionamento C-Level, construção de longo prazo. Tratar os dois com o mesmo play é um erro estratégico.</div>
       </div>
       <div class="bw-tier t2">
         <span class="bw-tier-badge">Tier 2 · 1:Few</span>
-        <div class="bw-tier-title">10 contas nacionais</div>
+        <div class="bw-tier-title">10 contas nacionais <span class="tag-public">Público</span></div>
         <div class="bw-tier-body">Gatilho regulatório, decisão mais rápida, solução objetiva.</div>
         <div class="bw-accounts">
           <span class="bw-acc-tag">M. Dias Branco</span>
@@ -479,7 +566,14 @@
     <span class="bw-label">Foco Tier 1 · Nestlé</span>
     <h2 class="bw-h2">A venda não começa convencendo. Começa encontrando quem está com o problema na mesa.</h2>
 
-    <p class="bw-body">A Nestlé vive uma pressão dupla: o global exige avanço em economia circular e o Brasil exige comprovação de logística reversa estado por estado (PNRS). O problema é o gap entre discurso e auditoria. O que é comunicado nem sempre é o que é comprovável.</p>
+    <div class="bw-legend">
+      <div class="bw-legend-item"><div class="bw-legend-dot public"></div> Dado público (relatórios, metas e legislação)</div>
+      <div class="bw-legend-item"><div class="bw-legend-dot hypothesis"></div> Hipótese estratégica (inferência estruturada, não dado interno)</div>
+    </div>
+
+    <p class="bw-body" style="margin-top:1rem;">
+      A Nestlé tem compromisso público global de redução de plástico e meta de economia circular <span class="tag-public">Público</span>. O Brasil exige comprovação de logística reversa estado por estado via PNRS <span class="tag-public">Público</span>. O problema é o gap entre o discurso e o que é efetivamente auditável na operação <span class="tag-hypo">Hipótese</span>.
+    </p>
 
     <div class="bw-pull">
       <p>A Eureciclo resolve o gap auditável.</p>
@@ -487,23 +581,25 @@
 
     <div class="bw-stakeholder">
       <div class="bw-scard">
-        <div class="bw-scard-role">Sponsor</div>
+        <div class="bw-scard-role">Sponsor <span class="tag-hypo">Hipótese</span></div>
         <div class="bw-scard-name">Diretor de Sustentabilidade</div>
         <div class="bw-scard-tag">Estratégica / reputação / metas globais</div>
       </div>
       <div class="bw-scard">
-        <div class="bw-scard-role">Dor direta</div>
+        <div class="bw-scard-role">Dor direta <span class="tag-hypo">Hipótese</span></div>
         <div class="bw-scard-name">Gerente de Compliance</div>
         <div class="bw-scard-tag">Técnica / risco / urgência</div>
       </div>
       <div class="bw-scard">
-        <div class="bw-scard-role">Influenciador</div>
+        <div class="bw-scard-role">Influenciador <span class="tag-hypo">Hipótese</span></div>
         <div class="bw-scard-name">Gerente de Supply Chain</div>
         <div class="bw-scard-tag">Operacional / viabilidade</div>
       </div>
     </div>
 
     <p class="bw-body">Erro: abordagem comercial direta. Isso faz o contato se sentir prospectado, não consultado. Estratégia correta: construir contexto antes da abordagem.</p>
+
+    <p class="bw-disclaimer">* Os stakeholders listados são hipóteses estruturais baseadas em perfis públicos de mercado — não representam dados internos ou contatos identificados da Nestlé.</p>
   </div>
 
   <div class="bw-section">
@@ -515,26 +611,26 @@
       <div class="bw-titem">
         <span class="bw-priority alta">Alta prioridade</span>
         <div class="bw-titem-day">D1 a D7</div>
-        <div class="bw-titem-action">LinkedIn Ads + Orgânico</div>
-        <div class="bw-titem-detail">Conteúdo sobre risco PNRS/ESG + interações em posts dos stakeholders. Criar familiaridade antes do contato.</div>
+        <div class="bw-titem-action">LinkedIn Ads + Engajamento Orgânico</div>
+        <div class="bw-titem-detail">Campanha de display com conteúdo de risco PNRS/ESG + interações relevantes nos posts públicos dos stakeholders. Criar familiaridade antes de qualquer contato direto.</div>
       </div>
       <div class="bw-titem">
         <span class="bw-priority alta">Alta prioridade</span>
         <div class="bw-titem-day">D10</div>
         <div class="bw-titem-action">E-mail direto</div>
-        <div class="bw-titem-detail">Envio de briefing de risco PNRS (pessoa → pessoa). Gerar valor antes de pedir atenção.</div>
+        <div class="bw-titem-detail">Envio de briefing de risco PNRS (pessoa → pessoa, não empresa). Gerar valor antes de pedir atenção.</div>
       </div>
       <div class="bw-titem">
         <span class="bw-priority alta">Alta prioridade</span>
         <div class="bw-titem-day">D14</div>
         <div class="bw-titem-action">LinkedIn</div>
-        <div class="bw-titem-detail">Follow-up com pergunta aberta sobre cenário regulatório. Abrir diálogo.</div>
+        <div class="bw-titem-detail">Follow-up referenciando o briefing + pergunta aberta sobre o cenário regulatório deles. Abrir diálogo.</div>
       </div>
       <div class="bw-titem">
         <span class="bw-priority alta">Alta prioridade</span>
         <div class="bw-titem-day">D20</div>
         <div class="bw-titem-action">Evento / Roundtable</div>
-        <div class="bw-titem-detail">Convite VIP (como participante, não prospect). Criar contexto sem pressão comercial.</div>
+        <div class="bw-titem-detail">Convite VIP para encontro fechado sobre conformidade PNRS — Nestlé como participante, não como prospect. Criar contexto sem pressão comercial.</div>
       </div>
       <div class="bw-titem">
         <span class="bw-priority media">Média prioridade</span>
@@ -546,13 +642,13 @@
         <span class="bw-priority media">Média prioridade</span>
         <div class="bw-titem-day">D30</div>
         <div class="bw-titem-action">LinkedIn + E-mail</div>
-        <div class="bw-titem-detail">Case de empresa similar. Prova social.</div>
+        <div class="bw-titem-detail">Case de empresa similar do setor alimentício que resolveu o mesmo problema. Prova social no momento certo.</div>
       </div>
       <div class="bw-titem">
         <span class="bw-priority alta">Alta prioridade</span>
         <div class="bw-titem-day">D35 a D45</div>
-        <div class="bw-titem-action">Reunião</div>
-        <div class="bw-titem-detail">Solicitação de reunião de diagnóstico. Converter em oportunidade. Quando a Eureciclo aparece como solução, o problema já está claro.</div>
+        <div class="bw-titem-action">Reunião de diagnóstico</div>
+        <div class="bw-titem-detail">Solicitação direta — contexto já construído, abordagem consultiva. Quando a Eureciclo aparece como solução, o problema já está claro.</div>
       </div>
     </div>
   </div>
@@ -565,7 +661,7 @@
       <div class="bw-trio-item">
         <div class="bw-trio-num">1</div>
         <div class="bw-trio-title">Inteligência regulatória como isca</div>
-        <p class="bw-trio-body">Oferecer clareza sobre normas. Guia prático: o que muda com a PNRS para empresas de alimentos e cosméticos. Distribuição via LinkedIn Ads segmentado por cargo e empresas-alvo. A comunicação é diagnóstico, não oferta.</p>
+        <p class="bw-trio-body">Guia prático: o que muda com a PNRS para empresas de alimentos e cosméticos. Distribuição via LinkedIn Ads segmentado por cargo e empresas-alvo. A comunicação é diagnóstico, não oferta.</p>
       </div>
       <div class="bw-trio-item">
         <div class="bw-trio-num">2</div>
@@ -575,7 +671,7 @@
       <div class="bw-trio-item">
         <div class="bw-trio-num">3</div>
         <div class="bw-trio-title">Parcerias com associações</div>
-        <p class="bw-trio-body">ABIA, ABIHPEC e ABRAS têm acesso direto ao ICP. Estratégia: co-criar conteúdo, evento e guia regulatório. Isso posiciona autoridade e gera lead qualificado sem outbound frio.</p>
+        <p class="bw-trio-body">ABIA, ABIHPEC e ABRAS <span class="tag-public" style="font-size:8px;">Público</span> têm acesso direto ao ICP. Co-criar conteúdo ou evento posiciona autoridade e gera lead qualificado sem outbound frio.</p>
       </div>
     </div>
 
@@ -612,6 +708,11 @@
 <div class="bw-closing">
   <p>O que estamos construindo hoje, <span>vira receita?</span></p>
   <small>Os três KPIs juntos respondem a pergunta que todo board quer saber.</small>
+
+  <div class="bw-signature">
+    <div class="bw-signature-name">Tatiane Dias Abib</div>
+    <div class="bw-signature-contact">(41) 99901-4553</div>
+  </div>
 </div>
 
 </body>
